@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=4 uid="uid://0r7vwcmx7fnh"]
+
+[ext_resource type="Texture2D" uid="uid://bva7rnci6jt05" path="res://Assets/Environment/Background.png" id="1_kx31g"]
+[ext_resource type="TileSet" uid="uid://d2m2mdiyfvvjt" path="res://Resources/Environment/TileSet.tres" id="1_vykv5"]
+[ext_resource type="PackedScene" uid="uid://cg30vquy4b6jg" path="res://Scenes/Objects/WinArea.tscn" id="3_5nw6k"]
+[ext_resource type="PackedScene" uid="uid://dsx2s14jka51l" path="res://Scenes/Characters/Player/Player.tscn" id="4_c3htd"]
+[ext_resource type="PackedScene" uid="uid://rlneebskftuj" path="res://Scenes/Objects/EdgeArea.tscn" id="5_5nw6k"]
+[ext_resource type="PackedScene" uid="uid://b5cxjtaci2ghb" path="res://Scenes/Characters/Enemy/Enemy.tscn" id="5_g3ev7"]
+[ext_resource type="PackedScene" uid="uid://byup34nnkxixd" path="res://Scenes/Objects/KillZone.tscn" id="7_mty4v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8dq8"]
+size = Vector2(2936, 62)
+
+[node name="Map" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(1, -98)
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_left = -606.0
+offset_top = -133.0
+offset_right = 2274.0
+offset_bottom = -11.0
+color = Color(0.898039, 0.976471, 0.976471, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Background"]
+offset_left = -615.0
+offset_top = 251.0
+offset_right = 2274.0
+offset_bottom = 835.0
+color = Color(0.576471, 0.890196, 0.894118, 1)
+
+[node name="Background1" type="Sprite2D" parent="Background"]
+position = Vector2(113, 125)
+texture = ExtResource("1_kx31g")
+
+[node name="Background3" type="Sprite2D" parent="Background"]
+position = Vector2(1073, 125)
+texture = ExtResource("1_kx31g")
+
+[node name="Background2" type="Sprite2D" parent="Background"]
+position = Vector2(593, 125)
+texture = ExtResource("1_kx31g")
+flip_h = true
+
+[node name="Background5" type="Sprite2D" parent="Background"]
+position = Vector2(-367, 125)
+texture = ExtResource("1_kx31g")
+flip_h = true
+
+[node name="Background4" type="Sprite2D" parent="Background"]
+position = Vector2(1553, 125)
+texture = ExtResource("1_kx31g")
+flip_h = true
+
+[node name="Background6" type="Sprite2D" parent="Background"]
+position = Vector2(2033, 125)
+texture = ExtResource("1_kx31g")
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Tiles"]
+tile_map_data = PackedByteArray("AAACAAcABAABAAAAAAACAAgABAABAAEAAAADAAcABAABAAAAAAADAAgABAABAAEAAAAEAAcABAABAAAAAAAEAAgABAABAAEAAAAFAAcABAABAAAAAAAFAAgABAABAAEAAAAGAAcABAABAAAAAAAGAAgABAABAAEAAAAHAAcABAABAAAAAAAHAAgABAABAAEAAAAIAAcABAABAAAAAAAIAAgABAABAAEAAAAJAAcABAABAAAAAAAJAAgABAABAAEAAAAKAAcABAABAAAAAAAKAAgABAABAAEAAAAOAAcABAAAAAAAAAAOAAgABAAAAAEAAAAPAAcABAABAAAAAAAPAAgABAABAAEAAAAQAAcABAABAAAAAAAQAAgABAABAAEAAAARAAcABAABAAAAAAARAAgABAABAAEAAAASAAcABAABAAAAAAASAAgABAABAAEAAAATAAcABAABAAAAAAATAAgABAABAAEAAAAUAAcABAABAAAAAAAUAAgABAABAAEAAAAVAAcABAABAAAAAAAVAAgABAABAAEAAAAWAAcABAABAAAAAAAWAAgABAABAAEAAAAXAAcABAABAAAAAAAXAAgABAABAAEAAAAYAAcABAABAAAAAAAYAAgABAABAAEAAAAZAAcABAABAAAAAAAZAAgABAABAAEAAAAaAAcABAABAAAAAAAaAAgABAABAAEAAAAbAAcABAABAAAAAAAbAAgABAABAAEAAAAcAAcABAACAAAAAAAcAAgABAACAAEAAAABAAcABAAAAAAAAAABAAgABAAAAAEAAAACAAkABAABAAIAAAADAAkABAABAAIAAAAEAAkABAABAAIAAAAFAAkABAABAAIAAAAGAAkABAABAAIAAAAHAAkABAABAAIAAAAIAAkABAABAAIAAAAJAAkABAABAAIAAAAKAAkABAABAAIAAAAOAAkABAAAAAIAAAAPAAkABAABAAIAAAAQAAkABAABAAIAAAARAAkABAABAAIAAAASAAkABAABAAIAAAATAAkABAABAAIAAAAUAAkABAABAAIAAAAVAAkABAABAAIAAAAWAAkABAABAAIAAAAXAAkABAABAAIAAAAYAAkABAABAAIAAAAZAAkABAABAAIAAAAaAAkABAABAAIAAAAbAAkABAABAAIAAAAcAAkABAACAAIAAAABAAkABAAAAAIAAAAfAAcABAAAAAAAAAAfAAgABAAAAAEAAAAfAAkABAAAAAIAAAAgAAcABAABAAAAAAAgAAgABAABAAEAAAAgAAkABAABAAIAAAAhAAcABAABAAAAAAAhAAgABAABAAEAAAAhAAkABAABAAIAAAAiAAcABAABAAAAAAAiAAgABAABAAEAAAAiAAkABAABAAIAAAAjAAcABAABAAAAAAAjAAgABAABAAEAAAAjAAkABAABAAIAAAAkAAcABAABAAAAAAAkAAgABAABAAEAAAAkAAkABAABAAIAAAAlAAcABAABAAAAAAAlAAgABAABAAEAAAAlAAkABAABAAIAAAAmAAcABAABAAAAAAAmAAgABAABAAEAAAAmAAkABAABAAIAAAAnAAcABAABAAAAAAAnAAgABAABAAEAAAAnAAkABAABAAIAAAAoAAcABAABAAAAAAAoAAgABAABAAEAAAAoAAkABAABAAIAAAApAAcABAABAAAAAAApAAgABAABAAEAAAApAAkABAABAAIAAAAqAAcABAABAAAAAAAqAAgABAABAAEAAAAqAAkABAABAAIAAAArAAcABAABAAAAAAArAAgABAABAAEAAAArAAkABAABAAIAAAAsAAcABAABAAAAAAAsAAgABAABAAEAAAAsAAkABAABAAIAAAAtAAcABAABAAAAAAAtAAgABAABAAEAAAAtAAkABAABAAIAAAAuAAcABAABAAAAAAAuAAgABAABAAEAAAAuAAkABAABAAIAAAAvAAcABAABAAAAAAAvAAgABAABAAEAAAAvAAkABAABAAIAAAAwAAcABAABAAAAAAAwAAgABAABAAEAAAAwAAkABAABAAIAAAAxAAcABAACAAAAAAAxAAgABAACAAEAAAAxAAkABAACAAIAAAALAAcABAACAAAAAAALAAgABAACAAEAAAALAAkABAACAAIAAAD+/wYABAAAAAAAAAD+/wcABAAAAAEAAAD//wYABAABAAAAAAD//wcABAABAAEAAAAAAAYABAACAAAAAAAAAAcABAACAAEAAAD+/wgABAAAAAIAAAD//wgABAABAAIAAAAAAAgABAACAAIAAAAyAAYABAAAAAAAAAAyAAcABAAAAAEAAAAyAAgABAAAAAIAAAAzAAYABAABAAAAAAAzAAcABAABAAEAAAAzAAgABAABAAIAAAA0AAYABAACAAAAAAA0AAcABAACAAEAAAA0AAgABAACAAIAAAA=")
+tile_set = ExtResource("1_vykv5")
+
+[node name="Player" parent="." instance=ExtResource("4_c3htd")]
+position = Vector2(4, 190)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("5_g3ev7")]
+position = Vector2(292, 221)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("5_g3ev7")]
+position = Vector2(643, 204)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("5_g3ev7")]
+position = Vector2(1140, 188)
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="EdgeArea" parent="Markers" instance=ExtResource("5_5nw6k")]
+position = Vector2(42, 219)
+
+[node name="EdgeArea2" parent="Markers" instance=ExtResource("5_5nw6k")]
+position = Vector2(385, 219)
+
+[node name="EdgeArea3" parent="Markers" instance=ExtResource("5_5nw6k")]
+position = Vector2(459, 221)
+
+[node name="EdgeArea4" parent="Markers" instance=ExtResource("5_5nw6k")]
+position = Vector2(931, 221)
+
+[node name="EdgeArea5" parent="Markers" instance=ExtResource("5_5nw6k")]
+position = Vector2(1003, 221)
+
+[node name="EdgeArea6" parent="Markers" instance=ExtResource("5_5nw6k")]
+position = Vector2(1603, 221)
+
+[node name="KillZone" parent="Markers" instance=ExtResource("7_mty4v")]
+position = Vector2(62, 545)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Markers/KillZone"]
+position = Vector2(694, 75)
+shape = SubResource("RectangleShape2D_t8dq8")
+
+[node name="WinZone" parent="Markers" instance=ExtResource("3_5nw6k")]
+position = Vector2(1656, 175)
